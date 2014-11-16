@@ -1,6 +1,6 @@
 CC = gcc
 RM = rm -f
-SO64 = pam_est_la_x64_0.1.so
+SO64 = pam_est_la_x64_0.2a.so
 LN64 = pam_est_la_x64.so
 
 CFLAGS =  -Wall -Wextra
