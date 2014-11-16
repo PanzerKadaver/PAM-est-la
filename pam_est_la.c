@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 #include "pam_est_la.h"
 
 int	pam_sm_open_session(pam_handle_t *pamh, int flags, int argc, const char **argv)
@@ -18,12 +20,15 @@ int	pam_sm_acct_mgmt(pam_handle_t *pamh, int flags, int argc, const char **argv)
   return (PAM_IGNORE);
 }
 
-int	pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, const char **argv)
+int		pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, const char **argv)
 {
   int	i;
+  const char *user = NULL;
 
   i = 0;
   printf("AUTH\n");
+  pam_get_user(pamh, &user, NULL);
+  printf("> user : [%s]\n", user);
   printf("> flag : %d\n", flags);
   printf("> ac : %d\n", argc);
   while (i < argc)
